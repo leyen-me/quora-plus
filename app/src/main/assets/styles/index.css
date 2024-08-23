@@ -1,0 +1,28 @@
+body {
+  overflow: auto !important;
+  pointer-events: auto !important;
+}
+
+/* 加载动画 */
+[data-translating="true"] {
+  position: relative;
+  animation: skeleton-animation 1s ease-in-out infinite;
+}
+
+@keyframes skeleton-animation {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* 隐藏OpenApp */
+div[style*="position: fixed"][style*="z-index: 300"][style*="height: 50px"][style*="left: 0px"][style*="right: 0px"][style*="bottom: 0px"] {
+  display: none;
+}
+
