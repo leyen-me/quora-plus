@@ -3,6 +3,10 @@
 
 const transGap = 100;
 
+const log = (str = "") => {
+  console.log(str);
+};
+
 // 随机生成ID函数
 const generateUUID = (length = 8) => {
   const characters =
@@ -173,7 +177,6 @@ const handleAddSearchTitle2Translate = async () => {
 };
 
 const handleTranslate = () => {
-  console.log("translate...");
   // 带换行的基本上都是标题和内容还有
   handleAddTranslateBySelectorAll('.q-text.qu-wordBreak--break-word', TRANSLATE_TYPE.SIMPLE);
 };

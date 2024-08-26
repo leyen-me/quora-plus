@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
-    public void setWebViewRefreshListener(){
+    public void setWebViewRefreshListener() {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         setWebChromeClient();
         setWebViewClient();
         setWebSettings();
-        webView.addJavascriptInterface(new TranslateService(webView), "TranslateService");
+        webView.addJavascriptInterface(new TranslateService(this, webView), "TranslateService");
         webView.loadUrl("https://www.quora.com/");
 
         setBackPressedCallback();
