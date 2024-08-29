@@ -10,21 +10,22 @@ on:
 jobs:
   upload-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Tag Repo
+        uses: richardsimko/update-tag@v1
         with:
-          node-version: '20'
+          tag_name: ${{ inputs.release-tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
       - name: Upload APK
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v1
+        if: ${{ success() }}
         with:
           tag_name: ${{ inputs.release-tag }}
           files: app/release/app-release.apk
