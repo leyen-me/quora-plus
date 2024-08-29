@@ -21,7 +21,7 @@ jobs:
         with:
           tag_name: ${{ inputs.release-tag }}
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload APK
         uses: softprops/action-gh-release@v1
@@ -31,4 +31,4 @@ jobs:
           files: app/release/app-release.apk
           generate_release_notes: true
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
